@@ -34,7 +34,7 @@ export default function Footer() {
           {site.contact ? (
             <p>{site.contact.email}</p>
           ) : (
-            <p className="max-w-[30ch] text-sm opacity-80">Contact details are added at launch. For now, the enquiry form is the way in.</p>
+            <p className="max-w-[30ch] text-sm opacity-80">Send us an enquiry and we&apos;ll reply by email with a first sketch of a route.</p>
           )}
           <ul className="flex gap-6 text-sm uppercase tracking-widest">
             <li><Link href="/about" className="hover:text-gold-light">About</Link></li>

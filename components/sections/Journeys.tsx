@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import Photo from "@/components/ui/Photo";
 import type { ResolvedMedia } from "@/lib/media";
-import { journeys } from "@/content/journeys";
+import { journeys, priceLabel } from "@/content/journeys";
 import { gsap, useGSAP, DESKTOP_MOTION } from "@/lib/gsap";
 
 // Full literal strings: each card sticks slightly lower than the one before.
@@ -52,7 +52,7 @@ export default function Journeys({ photos }: { photos: Record<string, ResolvedMe
                 </ul>
               </div>
               <div className="flex items-center justify-between gap-4">
-                <p className="text-sm">{j.fromPrice ?? "From price to be confirmed"}</p>
+                <p className="text-sm">{priceLabel(j)}</p>
                 <Link href={`/journeys/${j.slug}`} className="shrink-0 whitespace-nowrap rounded-sm bg-ink px-5 py-3 text-bone hover:bg-laterite">See the days</Link>
               </div>
             </div>

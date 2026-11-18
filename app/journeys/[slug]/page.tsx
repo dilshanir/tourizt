@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Photo from "@/components/ui/Photo";
 import Footer from "@/components/sections/Footer";
-import { journeys, getJourney } from "@/content/journeys";
+import { journeys, getJourney, priceLabel } from "@/content/journeys";
 import { resolveMedia } from "@/lib/media";
 
 export function generateStaticParams() {
@@ -37,9 +37,23 @@ export default async function Journey({ params }: PageProps<"/journeys/[slug]">)
           <div>
             <h2 className="text-sm uppercase tracking-widest text-laterite">Highlights</h2>
             <ul className="mt-4 space-y-2">{j.highlights.map((h) => <li key={h}>{h}</li>)}</ul>
-            <p className="mt-8 text-sm">{j.fromPrice ?? "From price to be confirmed."} Day-by-day detail is added once the studio supplies its itineraries.</p>
+            <p className="mt-8 text-sm">{priceLabel(j)}. Every journey is rebuilt around your dates, pace and who&apos;s coming.</p>
             <Link href="/plan" className="mt-8 inline-block rounded-sm bg-laterite px-7 py-4 text-bone hover:bg-ink">Plan my journey</Link>
           </div>
+        </section>
+        <section className="border-t border-ink/20 px-6 py-24 md:px-12" aria-labelledby="plan-title">
+          <h2 id="plan-title" className="font-display text-h2 leading-none">The days</h2>
+          <ol className="mt-12 space-y-10">
+            {j.plan.map((l) => (
+              <li key={l.when} className="grid gap-2 md:grid-cols-[14rem_1fr] md:gap-10">
+                <p className="text-sm uppercase tracking-widest text-laterite">{l.when}</p>
+                <div>
+                  <h3 className="font-display text-3xl">{l.title}</h3>
+                  <p className="mt-2 max-w-prose">{l.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </section>
       </main>
       <Footer />
