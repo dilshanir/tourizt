@@ -11,7 +11,7 @@ import { gsap, Flip, ScrollTrigger, useGSAP, DESKTOP_MOTION } from "@/lib/gsap";
 const HOLD_MS = 600;
 // Uneven widths for rhythm. Full literal class strings.
 const widths = ["lg:w-[34vw]", "lg:w-[42vw]", "lg:w-[30vw]", "lg:w-[38vw]"];
-const offsets = ["lg:mt-0", "lg:mt-24", "lg:mt-8", "lg:mt-32"];
+const offsets = ["lg:mt-0", "lg:mt-8", "lg:mt-0", "lg:mt-8"];
 
 export default function Destinations({ photos }: { photos: Record<string, ResolvedMedia> }) {
   const root = useRef<HTMLElement>(null);
@@ -77,7 +77,7 @@ export default function Destinations({ photos }: { photos: Record<string, Resolv
   return (
     <section id="destinations" ref={root} className="relative overflow-hidden lg:h-screen" aria-labelledby="dest-title">
       <div className="flex h-full flex-col px-6 pb-24 pt-24 md:px-12 lg:pb-12 lg:pt-28">
-        <div className="mb-10 flex items-end justify-between gap-6">
+        <div className="mb-8 flex items-end justify-between gap-6">
           <h2 id="dest-title" className="font-display text-h2 leading-none">Four ways in</h2>
           <p className="hidden max-w-[22ch] text-sm lg:block">Click to look closer. Hold to go straight in.</p>
         </div>
@@ -96,7 +96,7 @@ export default function Destinations({ photos }: { photos: Record<string, Resolv
                 onPointerCancel={endHold}
                 className="group block w-full text-left"
               >
-                <div data-card-img className="relative aspect-[4/5] w-full overflow-hidden rounded-sm lg:aspect-auto lg:h-[56vh]">
+                <div data-card-img className="relative aspect-[4/5] w-full overflow-hidden rounded-sm lg:aspect-auto lg:h-[44vh]">
                   <Photo m={photos[d.media]} sizes="(min-width:1024px) 40vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <h3 className="mt-4 font-display text-3xl">{d.name}</h3>

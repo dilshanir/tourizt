@@ -5,3 +5,6 @@
 - QA pass (Playwright, `tests/qa.mjs`): fixed hero headline flashing before its intro (pre-hidden with `visibility`), preloader flash on reload, nav bar styling, duplicate journey photo, doubled-back route line, moments mosaic gap, cursor dot stuck in corner, wrapping "See the days" button. Added real Unsplash photos.
 - Hero intro rewritten with fromTo (fixes headline stuck below its mask in dev/StrictMode).
 - Filled placeholders: journey day-by-day plans, 3 journal articles + pages, About, Privacy, 'How a trip comes together' (replaces empty guest-stories block until real stories exist), prices -> 'Price on enquiry'.
+- Layout cleanup: solid header, journeys as a plain alternating list (no overlapping stack), destinations cards aligned and fully visible, moments as two even rows.
+- Loading screen: removed cream background (line draws over the hero photo with a dark tint, fades out); html background is dark so nothing white flashes on reload.
+- Loading screen: removed the route line art (tint + Skip only).

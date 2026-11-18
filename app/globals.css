@@ -34,7 +34,8 @@
 }
 
 html {
-  background: var(--bone);
+  /* Dark, not cream: nothing white flashes while a page loads or reloads. Body paints the cream itself. */
+  background: var(--ink);
   color: var(--ink);
 }
 

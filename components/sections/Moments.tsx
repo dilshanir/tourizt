@@ -6,13 +6,14 @@ import type { ResolvedMedia } from "@/lib/media";
 import { gsap, useGSAP, NO_REDUCED } from "@/lib/gsap";
 
 // Layout, depth (parallax speed) and caption per tile. Literal class strings for Tailwind.
+// Two even rows of three. The middle column sits lower for rhythm; depth comes from the parallax speed.
 const tiles = [
-  { id: "m1", cls: "col-span-6 md:col-span-4 aspect-[3/4]", speed: -8, cap: "Stilt fishermen, south coast" },
-  { id: "m2", cls: "col-span-6 md:col-span-5 aspect-[4/3]", speed: 6, cap: "The line to Ella" },
-  { id: "m3", cls: "col-span-6 md:col-span-3 aspect-[3/4]", speed: -14, cap: "Rain season runoff" },
-  { id: "m4", cls: "col-span-6 md:col-span-4 aspect-[4/3]", speed: 10, cap: "Bath time" },
-  { id: "m5", cls: "col-span-6 md:col-span-4 aspect-[1/1]", speed: -6, cap: "Boats pulled up for the day" },
-  { id: "m6", cls: "col-span-12 md:col-span-4 aspect-[4/3]", speed: 12, cap: "Stone, forest, rails" },
+  { id: "m1", cls: "col-span-6 md:col-span-4 aspect-[4/5]", speed: -6, cap: "Stilt fishermen, south coast" },
+  { id: "m2", cls: "col-span-6 md:col-span-4 aspect-[4/5] md:mt-16", speed: 6, cap: "The line to Ella" },
+  { id: "m3", cls: "col-span-6 md:col-span-4 aspect-[4/5]", speed: -8, cap: "Waterfall in the hill country" },
+  { id: "m4", cls: "col-span-6 md:col-span-4 aspect-[4/5]", speed: 8, cap: "Elephants in the river" },
+  { id: "m5", cls: "col-span-6 md:col-span-4 aspect-[4/5] md:mt-16", speed: -6, cap: "Boats pulled up for the day" },
+  { id: "m6", cls: "col-span-12 md:col-span-4 aspect-[4/5]", speed: 6, cap: "Stone, forest, rails" },
 ] as const;
 
 export default function Moments({ photos }: { photos: Record<string, ResolvedMedia> }) {
@@ -53,7 +54,7 @@ export default function Moments({ photos }: { photos: Record<string, ResolvedMed
   return (
     <section ref={root} className="px-6 py-24 md:px-12 md:py-40" aria-labelledby="moments-title">
       <h2 id="moments-title" className="mb-12 max-w-[16ch] font-display text-h2 leading-none md:ml-[40%]">Small things we plan around</h2>
-      <div className="grid grid-cols-12 items-end gap-4 md:gap-6">
+      <div className="grid grid-cols-12 items-start gap-4 md:gap-6">
         {tiles.map((t) => (
           <figure
             key={t.id}

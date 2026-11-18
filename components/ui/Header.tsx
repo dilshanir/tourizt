@@ -71,7 +71,7 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 text-white transition-colors duration-300 md:px-12 ${
-        open || (isHome && !scrolled) ? "bg-transparent" : "bg-ink/95"
+        open || (isHome && !scrolled) ? "bg-transparent" : "bg-ink"
       }`}
     >
       <Link href="/" className="font-display text-2xl tracking-tight" onClick={() => setOpen(false)}>
