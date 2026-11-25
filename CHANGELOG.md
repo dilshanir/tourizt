@@ -8,3 +8,4 @@
 - Layout cleanup: solid header, journeys as a plain alternating list (no overlapping stack), destinations cards aligned and fully visible, moments as two even rows.
 - Loading screen: removed cream background (line draws over the hero photo with a dark tint, fades out); html background is dark so nothing white flashes on reload.
 - Loading screen: removed the route line art (tint + Skip only).
+- Removed splash screen (Preloader); hero intro now plays on load.

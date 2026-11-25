@@ -14,16 +14,3 @@ export function useMedia(query: string): boolean {
     () => false,
   );
 }
-
-/** True when the preloader should be skipped: seen this session, or the visitor prefers reduced motion. */
-export function useSkipPreloader(key: string): boolean {
-  return useSyncExternalStore(
-    () => () => {},
-    () => {
-      let seen = false;
-      try { seen = sessionStorage.getItem(key) === "1"; } catch { /* storage unavailable */ }
-      return seen || !window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
-    },
-    () => false,
-  );
-}

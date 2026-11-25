@@ -76,11 +76,6 @@ html.lenis body {
   }
 }
 
-/* Preloader is hidden before paint for repeat visits (see inline script in layout) */
-html[data-tz-skip] #preloader {
-  display: none;
-}
-
 /* Static grain, not animated */
 .grain::after {
   content: "";

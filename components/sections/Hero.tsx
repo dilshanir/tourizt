@@ -19,17 +19,11 @@ export default function Hero({ poster, video }: { poster: ResolvedMedia; video: 
         const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
         if (vid.current && !saveData) vid.current.play().catch(() => {});
 
-        // Why: the intro text and button fade up once the loading screen lifts, so the photo gets the first moment.
+        // Why: the intro text and button fade up on load, after the photo has had the first moment.
         // fromTo gives explicit start AND end values, so a double-run in dev (StrictMode) can't leave a stale offset.
         // Its start state renders immediately, which hides the text again before the CSS pre-hide is released.
-        const tl = gsap
-          .timeline({ paused: true })
-          .fromTo("[data-hero-fade]", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" });
+        gsap.fromTo("[data-hero-fade]", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power2.out" });
         root.current?.classList.remove("hero-pre");
-        const go = () => tl.play();
-        if (document.documentElement.dataset.ready) go();
-        else window.addEventListener("tz:ready", go, { once: true });
-        return () => window.removeEventListener("tz:ready", go);
       });
       return () => mm.revert();
     },
